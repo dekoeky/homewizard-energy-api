@@ -1,11 +1,41 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>netstandard2.1</TargetFramework>
+		<TargetFrameworks>netstandard2.1;netstandard2.0;net6.0;net7.0;net8.0</TargetFrameworks>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<LangVersion>latest</LangVersion>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<Title>Homewizard Energy Api Client</Title>
+		<Authors>Wesley Van Koeckhoven</Authors>
+		<Company>Wesley Van Koeckhoven</Company>
+		<Description>A .NET client for the Homewizard Energy Api</Description>
+		<PackageProjectUrl>https://github.com/dekoeky/homewizard-energy-api</PackageProjectUrl>
+		<PackageIcon>HomeWizard Logo.png</PackageIcon>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<RepositoryUrl>https://github.com/dekoeky/homewizard-energy-api</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageTags>Homewizard;Energy;IoT;HWE-P1;HWE-P1;HWE-WTR;SDM230-wifi;SDM630-wifi;SDM630-wifi;Wi-Fi Energy Socket;Wi-Fi Watermeter;Wi-Fi kWh meter (1 phase);Wi-Fi kWh meter (3 phase)</PackageTags>
+		<Copyright>Copyright (c) Wesley Van Koeckhoven 2023</Copyright>
+		<PackageLicenseFile>LICENSE</PackageLicenseFile>
+		<IncludeSymbols>True</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 	</PropertyGroup>
+
+	<ItemGroup>
+	  <None Include="..\HomeWizard Logo.png">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
+	  <None Include="..\LICENSE">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
+	  <None Include="..\README.md">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
+	</ItemGroup>
 
 	<ItemGroup>
 	  <PackageReference Include="System.Net.Http.Json" Version="7.0.1" />
