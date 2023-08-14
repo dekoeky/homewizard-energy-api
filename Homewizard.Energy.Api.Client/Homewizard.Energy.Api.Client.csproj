@@ -11,7 +11,7 @@
 		<Company>Wesley Van Koeckhoven</Company>
 		<Description>A .NET client for the Homewizard Energy Api</Description>
 		<PackageProjectUrl>https://github.com/dekoeky/homewizard-energy-api</PackageProjectUrl>
-		<PackageIcon>HomeWizard Logo.png</PackageIcon>
+		<PackageIcon>128x128.png</PackageIcon>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<RepositoryUrl>https://github.com/dekoeky/homewizard-energy-api</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
@@ -23,7 +23,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <None Include="..\HomeWizard Logo.png">
+	  <None Include="..\icons\HomeWizardLogo\128x128.png">
 	    <Pack>True</Pack>
 	    <PackagePath>\</PackagePath>
 	  </None>
