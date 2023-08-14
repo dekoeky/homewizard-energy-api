@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homewizard.Energy.Api.Client", "Homewizard.Energy.Api.Client\Homewizard.Energy.Api.Client.csproj", "{BFFBE6E9-9508-47BD-B418-3A9B6D02A375}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homewizard.Energy.Api.Client.Tests", "Homewizard.Energy.Api.Client.Tests\Homewizard.Energy.Api.Client.Tests.csproj", "{E36F90B9-871E-4B8B-A005-E8A377F285CA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BFFBE6E9-9508-47BD-B418-3A9B6D02A375}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFFBE6E9-9508-47BD-B418-3A9B6D02A375}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFFBE6E9-9508-47BD-B418-3A9B6D02A375}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFFBE6E9-9508-47BD-B418-3A9B6D02A375}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E36F90B9-871E-4B8B-A005-E8A377F285CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E36F90B9-871E-4B8B-A005-E8A377F285CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E36F90B9-871E-4B8B-A005-E8A377F285CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E36F90B9-871E-4B8B-A005-E8A377F285CA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4C1882AA-B098-415B-A38A-EF1316DC1688}
+	EndGlobalSection
+EndGlobal
