@@ -7,7 +7,7 @@ namespace Homewizard.Energy.Api.Client.Tests;
 [TestClass]
 public class StateDataTests
 {
-    private static readonly JsonSerializerOptions options = new JsonSerializerOptions
+    private static readonly JsonSerializerOptions options = new()
     {
         AllowTrailingCommas = true,
         WriteIndented = true,
