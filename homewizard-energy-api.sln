@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homewizard.Energy.Api.Clien
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homewizard.Energy.Api.Client.Tests", "Homewizard.Energy.Api.Client.Tests\Homewizard.Energy.Api.Client.Tests.csproj", "{E36F90B9-871E-4B8B-A005-E8A377F285CA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homewizard.Energy.Api.Client.ConsoleApp", "Homewizard.Energy.Api.Client.ConsoleApp\Homewizard.Energy.Api.Client.ConsoleApp.csproj", "{99028BC6-C10F-4693-807D-09958819D919}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{E36F90B9-871E-4B8B-A005-E8A377F285CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E36F90B9-871E-4B8B-A005-E8A377F285CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E36F90B9-871E-4B8B-A005-E8A377F285CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99028BC6-C10F-4693-807D-09958819D919}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99028BC6-C10F-4693-807D-09958819D919}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99028BC6-C10F-4693-807D-09958819D919}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99028BC6-C10F-4693-807D-09958819D919}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
