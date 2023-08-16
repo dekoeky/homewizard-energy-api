@@ -20,6 +20,6 @@ public class Client : IClient
     public Task<SystemStateData?> GetSystem(CancellationToken cancellationToken = default)
         => client.GetFromJsonAsync<SystemStateData>("api/v1/system", cancellationToken);
     public Task<HweSktData?> GetDataFromSocket(CancellationToken cancellationToken = default)
-        => client.GetFromJsonAsync<HweSktData>("api/v1/system", cancellationToken);
+        => client.GetFromJsonAsync<HweSktData>("api/v1/data", cancellationToken);
 
 }
