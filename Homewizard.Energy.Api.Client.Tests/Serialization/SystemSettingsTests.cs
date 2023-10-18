@@ -1,11 +1,11 @@
-﻿using Homewizard.Energy.Api.Client.Models;
+using Homewizard.Energy.Api.Client.Models;
 using System.Diagnostics;
 using System.Text.Json;
 
-namespace Homewizard.Energy.Api.Client.Tests;
+namespace Homewizard.Energy.Api.Client.Tests.Serialization;
 
 [TestClass]
-public class StateDataTests
+public class SystemSettingsTests
 {
     private static readonly JsonSerializerOptions options = new()
     {
@@ -13,32 +13,26 @@ public class StateDataTests
         WriteIndented = true,
     };
 
-
-    [TestMethod]
-    public void DeserializeTest()
+    [DataTestMethod]
+    [DataRow("{\r\n   \"cloud_enabled\": false\r\n}\r\n", false)]
+    [DataRow("{\r\n   \"cloud_enabled\": true\r\n}\r\n", true)]
+    public void DeserializeTest(string json, bool expectedCloudEnabled)
     {
-        //Arrange
-        const string json = "{\r\n   \"power_on\": true,\r\n   \"switch_lock\": false,\r\n   \"brightness\": 255\r\n}";
-
         //Act
-        var data = JsonSerializer.Deserialize<StateData>(json, options);
+        var data = JsonSerializer.Deserialize<SystemSettings>(json, options);
 
         //Assert
         Assert.IsNotNull(data);
-        Assert.AreEqual(true, data.PowerOn);
-        Assert.AreEqual(false, data.SwitchLock);
-        Assert.AreEqual(255, data.Brightness);
+        Assert.AreEqual(expectedCloudEnabled, data.CloudEnabled);
     }
 
     [TestMethod]
     public void SerializeTest()
     {
         //Arrange
-        var data = new StateData
+        var data = new SystemSettings
         {
-            PowerOn = true,
-            SwitchLock = false,
-            Brightness = 255,
+            CloudEnabled = true,
         };
 
         //Act

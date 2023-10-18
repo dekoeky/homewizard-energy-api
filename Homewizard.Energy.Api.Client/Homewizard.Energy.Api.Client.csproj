@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>netstandard2.1;netstandard2.0;net6.0;net7.0;net8.0</TargetFrameworks>
+		<TargetFrameworks>netstandard2.1;netstandard2.0;net6.0;net7.0</TargetFrameworks>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<LangVersion>latest</LangVersion>
@@ -38,6 +38,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <PackageReference Include="Makaretu.Dns.Multicast" Version="0.27.0" />
 	  <PackageReference Include="System.Net.Http.Json" Version="7.0.1" />
 	  <PackageReference Include="System.Text.Json" Version="7.0.3" />
 	</ItemGroup>
