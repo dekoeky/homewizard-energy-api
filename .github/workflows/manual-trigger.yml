@@ -1,0 +1,11 @@
+name: Manual trigger
+
+on:
+  workflow_dispatch:
+
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+    steps:
+    - name: 📄 Demo Output 
+      run: echo Hello World!
