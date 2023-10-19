@@ -2,8 +2,8 @@
 
 namespace Homewizard.Energy.Api.Client.Models;
 
-public class SystemStateData
+public class SystemSettings
 {
     [JsonPropertyName("cloud_enabled")]
-    public bool CloudEnabled { get; set; }
+    public bool? CloudEnabled { get; set; }
 }

@@ -5,7 +5,7 @@ namespace Homewizard.Energy.Api.Client.Models;
 /// <summary>
 /// Base type for Wifi Device Data types
 /// </summary>
-public abstract  class WifiDataBase
+public abstract class WifiDataBase
 {
     /// <summary>
     /// The Wi-Fi network that the meter is connected to

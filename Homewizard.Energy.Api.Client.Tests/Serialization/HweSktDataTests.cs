@@ -2,7 +2,7 @@ using Homewizard.Energy.Api.Client.Models;
 using System.Diagnostics;
 using System.Text.Json;
 
-namespace Homewizard.Energy.Api.Client.Tests;
+namespace Homewizard.Energy.Api.Client.Tests.Serialization;
 
 [TestClass]
 public class HweSktDataTests

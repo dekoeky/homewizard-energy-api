@@ -3,11 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homewizard.Energy.Api.Client", "Homewizard.Energy.Api.Client\Homewizard.Energy.Api.Client.csproj", "{BFFBE6E9-9508-47BD-B418-3A9B6D02A375}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Homewizard.Energy.Api.Client", "Homewizard.Energy.Api.Client\Homewizard.Energy.Api.Client.csproj", "{BFFBE6E9-9508-47BD-B418-3A9B6D02A375}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homewizard.Energy.Api.Client.Tests", "Homewizard.Energy.Api.Client.Tests\Homewizard.Energy.Api.Client.Tests.csproj", "{E36F90B9-871E-4B8B-A005-E8A377F285CA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Homewizard.Energy.Api.Client.Tests", "Homewizard.Energy.Api.Client.Tests\Homewizard.Energy.Api.Client.Tests.csproj", "{E36F90B9-871E-4B8B-A005-E8A377F285CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homewizard.Energy.Api.Client.ConsoleApp", "Homewizard.Energy.Api.Client.ConsoleApp\Homewizard.Energy.Api.Client.ConsoleApp.csproj", "{99028BC6-C10F-4693-807D-09958819D919}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Homewizard.Energy.Api.Client.ConsoleApp", "Homewizard.Energy.Api.Client.ConsoleApp\Homewizard.Energy.Api.Client.ConsoleApp.csproj", "{99028BC6-C10F-4693-807D-09958819D919}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication1", "WebApplication1\WebApplication1.csproj", "{A5B7AC9F-9C1C-43A4-BABF-E92D01B9D807}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ElasticInserterDemo", "ElasticInserterDemo\ElasticInserterDemo.csproj", "{6C6804DC-0A6A-46C9-A94F-800115154300}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Homewizard.Energy.Api.Client.DependencyInjection", "Homewizard.Energy.Api.Client.DependencyInjection\Homewizard.Energy.Api.Client.DependencyInjection.csproj", "{9D0C0C3C-F375-4839-85D0-9B249F019194}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +33,18 @@ Global
 		{99028BC6-C10F-4693-807D-09958819D919}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99028BC6-C10F-4693-807D-09958819D919}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99028BC6-C10F-4693-807D-09958819D919}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5B7AC9F-9C1C-43A4-BABF-E92D01B9D807}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5B7AC9F-9C1C-43A4-BABF-E92D01B9D807}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5B7AC9F-9C1C-43A4-BABF-E92D01B9D807}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5B7AC9F-9C1C-43A4-BABF-E92D01B9D807}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C6804DC-0A6A-46C9-A94F-800115154300}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C6804DC-0A6A-46C9-A94F-800115154300}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C6804DC-0A6A-46C9-A94F-800115154300}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C6804DC-0A6A-46C9-A94F-800115154300}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D0C0C3C-F375-4839-85D0-9B249F019194}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D0C0C3C-F375-4839-85D0-9B249F019194}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D0C0C3C-F375-4839-85D0-9B249F019194}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D0C0C3C-F375-4839-85D0-9B249F019194}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
