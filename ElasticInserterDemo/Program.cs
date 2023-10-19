@@ -9,11 +9,13 @@ var builder = Host.CreateApplicationBuilder(args);
 builder.Logging.ClearProviders();
 builder.Logging.AddSerilog(new LoggerConfiguration().ReadFrom.Configuration(builder.Configuration).CreateLogger());
 
-const string url = "https://elastic:elastic@host.docker.internal:9200";
-var settings = new ElasticsearchClientSettings(new Uri(url));
+var settings = new ElasticsearchClientSettings(builder.Configuration.GetValue<Uri>("ElasticSearch:Url"));
 #warning Cerver Certificate ignored
 settings.ServerCertificateValidationCallback(CertificateValidations.AllowAll);
-
+settings.Authentication(new BasicAuthentication(
+    builder.Configuration["ElasticSearch:Username"] ?? throw new Exception("ElasticSearch Username Missing"),
+    builder.Configuration["ElasticSearch:Password"] ?? throw new Exception("ElasticSearch Password Missing")
+));
 settings.DefaultMappingFor<ElasticInserterDemo.Models.Data>(f => f.IndexName("data"));
 
 builder.Services.AddSingleton<IElasticsearchClientSettings>(settings);
