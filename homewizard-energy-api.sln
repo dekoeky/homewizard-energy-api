@@ -13,9 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication1", "WebAppli
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ElasticInserterDemo", "ElasticInserterDemo\ElasticInserterDemo.csproj", "{6C6804DC-0A6A-46C9-A94F-800115154300}"
 EndProject
-Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{59E9338A-DF61-435E-97D1-9A492DD79D77}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homewizard.Energy.Api.Client.DependencyInjection", "Homewizard.Energy.Api.Client.DependencyInjection\Homewizard.Energy.Api.Client.DependencyInjection.csproj", "{9D0C0C3C-F375-4839-85D0-9B249F019194}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Homewizard.Energy.Api.Client.DependencyInjection", "Homewizard.Energy.Api.Client.DependencyInjection\Homewizard.Energy.Api.Client.DependencyInjection.csproj", "{9D0C0C3C-F375-4839-85D0-9B249F019194}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickTest", "QuickTest\QuickTest.csproj", "{E064AE21-2023-4118-8216-9641D5AC5F29}"
 EndProject
@@ -45,10 +43,6 @@ Global
 		{6C6804DC-0A6A-46C9-A94F-800115154300}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C6804DC-0A6A-46C9-A94F-800115154300}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C6804DC-0A6A-46C9-A94F-800115154300}.Release|Any CPU.Build.0 = Release|Any CPU
-		{59E9338A-DF61-435E-97D1-9A492DD79D77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{59E9338A-DF61-435E-97D1-9A492DD79D77}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{59E9338A-DF61-435E-97D1-9A492DD79D77}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{59E9338A-DF61-435E-97D1-9A492DD79D77}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9D0C0C3C-F375-4839-85D0-9B249F019194}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9D0C0C3C-F375-4839-85D0-9B249F019194}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9D0C0C3C-F375-4839-85D0-9B249F019194}.Release|Any CPU.ActiveCfg = Release|Any CPU
