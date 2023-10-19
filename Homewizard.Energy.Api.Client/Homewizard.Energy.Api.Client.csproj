@@ -5,7 +5,7 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<LangVersion>latest</LangVersion>
-		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<!-- <GeneratePackageOnBuild>True</GeneratePackageOnBuild> -->
 		<Title>Homewizard Energy Api Client</Title>
 		<Authors>Wesley Van Koeckhoven</Authors>
 		<Company>Wesley Van Koeckhoven</Company>
