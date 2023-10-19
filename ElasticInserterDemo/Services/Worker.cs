@@ -27,6 +27,7 @@ public class Worker : BackgroundService
                 Counter = ++counter,
                 BasicInformation = await socketClient.GetBasicInformation(stoppingToken),
                 SocketData = await socketClient.GetSocketData(stoppingToken),
+                MachineName = Environment.MachineName,
             };
 
             var result = await elasticSearch.IndexAsync(data, stoppingToken);
