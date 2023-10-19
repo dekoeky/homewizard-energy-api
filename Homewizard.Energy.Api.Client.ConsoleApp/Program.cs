@@ -8,11 +8,19 @@ var client = new WifiEnergySocketClient(new Uri("http://192.168.0.242"));
 
 var basicInformation = await client.GetBasicInformation();
 Console.WriteLine("Basic Information");
-Console.WriteLine($"{nameof(basicInformation.ProductName),-15}: {basicInformation.ProductName}");
-Console.WriteLine($"{nameof(basicInformation.ProductType),-15}: {basicInformation.ProductType}");
-Console.WriteLine($"{nameof(basicInformation.ApiVersion),-15}: {basicInformation.ApiVersion}");
-Console.WriteLine($"{nameof(basicInformation.FirmwareVersion),-15}: {basicInformation.FirmwareVersion}");
-Console.WriteLine($"{nameof(basicInformation.Serial),-15}: {basicInformation.Serial}");
+if (basicInformation == null)
+{
+    Console.WriteLine("(NULL)");
+}
+else
+{
+    Console.WriteLine($"{nameof(basicInformation.ProductName),-15}: {basicInformation.ProductName}");
+    Console.WriteLine($"{nameof(basicInformation.ProductType),-15}: {basicInformation.ProductType}");
+    Console.WriteLine($"{nameof(basicInformation.ApiVersion),-15}: {basicInformation.ApiVersion}");
+    Console.WriteLine($"{nameof(basicInformation.FirmwareVersion),-15}: {basicInformation.FirmwareVersion}");
+    Console.WriteLine($"{nameof(basicInformation.Serial),-15}: {basicInformation.Serial}");
+}
+
 Console.WriteLine();
 
 
