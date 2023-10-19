@@ -32,6 +32,7 @@ jobs:
     - name: 🩺 Test
       run: dotnet test --no-build --verbosity normal Homewizard.Energy.Api.Client
     - name: 📦 Package
+      #run: dotnet pack --no-build --no-restore Homewizard.Energy.Api.Client
       run: dotnet pack --no-build --no-restore Homewizard.Energy.Api.Client
     - name: 🚚 Publish Package
       run: 'echo ToDo: Publish the package'
