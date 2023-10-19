@@ -1,4 +1,4 @@
-using Elastic.Clients.Elasticsearch;
+﻿using Elastic.Clients.Elasticsearch;
 using ElasticInserterDemo.Models;
 using Homewizard.Energy.Api.Client.Clients;
 
@@ -7,10 +7,10 @@ namespace ElasticInserterDemo.Services;
 public class Worker : BackgroundService
 {
     private readonly ILogger<Worker> _logger;
-    private readonly IClient socketClient;
+    private readonly IWifiEnergySocketClient socketClient;
     private readonly ElasticsearchClient elasticSearch;
 
-    public Worker(ILogger<Worker> logger, IClient socketClient, ElasticsearchClient elasticSearch)
+    public Worker(ILogger<Worker> logger, IWifiEnergySocketClient socketClient, ElasticsearchClient elasticSearch)
     {
         _logger = logger;
         this.socketClient = socketClient;

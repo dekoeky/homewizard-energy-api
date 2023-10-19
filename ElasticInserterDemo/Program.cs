@@ -1,4 +1,4 @@
-using Elastic.Clients.Elasticsearch;
+﻿using Elastic.Clients.Elasticsearch;
 using Elastic.Transport;
 using ElasticInserterDemo.Services;
 using Homewizard.Energy.Api.Client.Clients;
@@ -15,7 +15,7 @@ settings.DefaultMappingFor<ElasticInserterDemo.Models.Data>(f => f.IndexName("da
 
 builder.Services.AddSingleton<IElasticsearchClientSettings>(settings);
 builder.Services.AddSingleton<ElasticsearchClient>();
-builder.Services.AddHttpClient<IClient, Client>(options => options.BaseAddress = new Uri("http://192.168.0.242"));
+builder.Services.AddHttpClient<IWifiEnergySocketClient, WifiEnergySocketClient>(options => options.BaseAddress = new Uri("http://192.168.0.242"));
 builder.Services.AddHostedService<Worker>();
 
 var host = builder.Build();

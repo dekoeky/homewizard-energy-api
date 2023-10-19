@@ -1,13 +1,14 @@
-﻿using Makaretu.Dns;
-using System.Collections.Concurrent;
+﻿using System.Collections.Concurrent;
+using Makaretu.Dns;
 
 namespace Homewizard.Energy.Api.Client;
 
+
 public class DeviceDiscoverer : IDisposable
 {
-    private const string domainPartOne = "_hwenergy";
-    private const string domainPartTwo = "_tcp";
-    private static readonly DomainName domain = new(domainPartOne, domainPartTwo);
+    public const string DomainPartOne = "_hwenergy";
+    public const string DomainPartTwo = "_tcp";
+    private static readonly DomainName domain = new(DomainPartOne, DomainPartTwo);
 
     private readonly ServiceDiscovery sd = new();
     private ConcurrentBag<string> discovered = new();
@@ -23,7 +24,7 @@ public class DeviceDiscoverer : IDisposable
     {
         var parent = e.ServiceInstanceName.Parent();
 
-        if (domainPartOne.Equals(parent.Labels.ElementAtOrDefault(0), StringComparison.InvariantCultureIgnoreCase))
+        if (DomainPartOne.Equals(parent.Labels.ElementAtOrDefault(0), StringComparison.InvariantCultureIgnoreCase))
             discovered.Add(e.ServiceInstanceName.Labels.First());
     }
 

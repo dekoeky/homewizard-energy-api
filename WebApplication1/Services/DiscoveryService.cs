@@ -1,61 +1,53 @@
-using System.Net;
-using System.Net.NetworkInformation;
+﻿using System.Collections.Concurrent;
+using Makaretu.Dns;
 
 namespace WebApplication1.Controllers;
 
 public class DiscoveryService : BackgroundService
 {
-    protected override Task ExecuteAsync(CancellationToken stoppingToken)
-    {
-        foreach (var nic in GetNics())
-            ScanNic(nic);
+    private const string DomainPartOne = "_hwenergy";
+    private const string DomainPartTwo = "_tcp";
+    private static readonly DomainName Service = new(DomainPartOne, DomainPartTwo, "_local");
+    private readonly TimeSpan delay = TimeSpan.FromMinutes(1);
+    private readonly ILogger<DiscoveryService> _logger;
 
-        return Task.CompletedTask;
+    private readonly ServiceDiscovery _discovery = new();
+    private ConcurrentBag<string> _discovered = new();
+
+    public DiscoveryService(ILogger<DiscoveryService> logger)
+    {
+        _logger = logger;
     }
 
-    private IEnumerable<NetworkInterface> GetNics()
+    protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        var nics = NetworkInterface.GetAllNetworkInterfaces();
+        _discovery.ServiceInstanceDiscovered += _discovery_ServiceInstanceDiscovered;
 
-        //var x = nics
-        //    .Where(n => n.OperationalStatus == OperationalStatus.Up)
-        //    .Where(n => n.NetworkInterfaceType == )
-        //;
-
-        return nics;
-    }
-
-    private void ScanNic(NetworkInterface nic)
-    {
-        if (nic.OperationalStatus != OperationalStatus.Up)
-            return;
-        if (nic.NetworkInterfaceType == NetworkInterfaceType.Loopback)
-            return;
-
-        var props = nic.GetIPProperties();
-
-        foreach (UnicastIPAddressInformation x in props.UnicastAddresses)
+        while (!stoppingToken.IsCancellationRequested)
         {
-            if (x.Address.AddressFamily != System.Net.Sockets.AddressFamily.InterNetwork)
-                continue;
-
-            //var address = x.Address;
-            //var mask = x.IPv4Mask;
-
-            Console.WriteLine($"Address: {x.Address}");
-            Console.WriteLine($"Mask: {x.IPv4Mask}");
-            Console.WriteLine($"Mask: {x.Address.AddressFamily}");
-            Console.WriteLine($"Nic Type: {nic.NetworkInterfaceType}");
-            Console.WriteLine();
-
+            _discovery.QueryServiceInstances(Service);
+            await Task.Delay(delay, stoppingToken);
         }
 
-
+        _discovery.ServiceInstanceDiscovered -= _discovery_ServiceInstanceDiscovered;
     }
 
-    private void Maskies(IPAddress address, IPAddress mask)
+    private void _discovery_ServiceInstanceDiscovered(object? sender, ServiceInstanceDiscoveryEventArgs e)
     {
-        //172.21.64.1       --> 20977068
-        //255.255.240.0     --> 15794175
+        var parent = e.ServiceInstanceName.Parent();
+
+        if (DomainPartOne.Equals(parent.Labels.ElementAtOrDefault(0), StringComparison.InvariantCultureIgnoreCase))
+            Discovered(e.ServiceInstanceName.Labels.First());
+    }
+
+    private void Discovered(string hostname)
+    {
+        lock (_discovered)
+        {
+            if (_discovered.Contains(hostname)) return;
+
+            _discovered.Add(hostname);
+        }
+        _logger.LogInformation("Discovered {hostname}", hostname);
     }
 }

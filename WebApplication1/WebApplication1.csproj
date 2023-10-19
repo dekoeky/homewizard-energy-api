@@ -11,4 +11,8 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Homewizard.Energy.Api.Client\Homewizard.Energy.Api.Client.csproj" />
+  </ItemGroup>
+
 </Project>

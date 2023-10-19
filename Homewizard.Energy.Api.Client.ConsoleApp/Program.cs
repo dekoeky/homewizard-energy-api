@@ -2,7 +2,7 @@
 using Figgle;
 using Homewizard.Energy.Api.Client.Clients;
 
-var client = new Client(new Uri("http://192.168.0.242"));
+var client = new WifiEnergySocketClient(new Uri("http://192.168.0.242"));
 
 //5C:2F:AF:0C:CF:04 @ 192.168.0.242
 

@@ -9,7 +9,7 @@ public class ClientTests
     public async Task foo()
     {
         //Arrange
-        IWifiEnergySocketClient client = new Clients.Client(new HttpClient() { BaseAddress = new Uri("http://192.168.0.242") });
+        IWifiEnergySocketClient client = new WifiEnergySocketClient("http://192.168.0.242");
 
         //Act
         var result = await client.GetState();
