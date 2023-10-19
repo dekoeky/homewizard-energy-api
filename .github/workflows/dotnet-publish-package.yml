@@ -33,7 +33,7 @@ jobs:
       run: dotnet test --no-build --verbosity normal Homewizard.Energy.Api.Client
     - name: 📦 Package
       #run: dotnet pack --no-build --no-restore Homewizard.Energy.Api.Client
-      run: dotnet pack --no-build --no-restore Homewizard.Energy.Api.Client
+      run: dotnet pack Homewizard.Energy.Api.Client
     - name: 🚚 Publish Package
       run: dotnet nuget push Homewizard.Energy.Api.Client/bin/Release/Homewizard.Energy.Api.Client.1.0.0.nupkg -s https://nuget.pkg.github.com/dekoeky/index.json --api-key ${GITHUB_TOKEN}
       env:
