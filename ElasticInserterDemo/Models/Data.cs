@@ -8,5 +8,5 @@ public class Data
     public uint Counter { get; set; }
     public BasicInformation? BasicInformation { get; set; }
     public HweSktData? SocketData { get; set; }
-    public string MachineName { get; set; }
+    public string? MachineName { get; set; }
 }

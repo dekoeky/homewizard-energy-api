@@ -26,7 +26,7 @@ public class BaseClient : IBaseClient
     {
         var response = await _http.PutAsJsonAsync(Endpoints.State, wantedState, cancellationToken);
 
-        var data = await response.Content.ReadFromJsonAsync<EnergySocketStateData>();
+        var data = await response.Content.ReadFromJsonAsync<EnergySocketStateData>(cancellationToken: cancellationToken);
 
         return data;
     }

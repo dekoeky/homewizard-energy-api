@@ -3,40 +3,49 @@ using Makaretu.Dns;
 
 namespace Homewizard.Energy.Api.Client;
 
-
 public class DeviceDiscoverer : IDisposable
 {
     public const string DomainPartOne = "_hwenergy";
     public const string DomainPartTwo = "_tcp";
-    private static readonly DomainName domain = new(DomainPartOne, DomainPartTwo);
+    private static readonly DomainName Domain = new(DomainPartOne, DomainPartTwo);
 
-    private readonly ServiceDiscovery sd = new();
-    private ConcurrentBag<string> discovered = new();
-
+    private readonly ServiceDiscovery _discovery = new();
+    private readonly ConcurrentBag<string> _discovered = new();
 
     public void Dispose()
     {
-        sd.ServiceInstanceDiscovered -= ServiceInstanceDiscovered;
-        sd?.Dispose();
+        Dispose(true);
+        GC.SuppressFinalize(this);
+    }
+
+    protected virtual void Dispose(bool disposing)
+    {
+        if (!disposing)
+            return;
+
+        _discovery.ServiceInstanceDiscovered -= ServiceInstanceDiscovered;
+        _discovery.Dispose();
     }
 
     private void ServiceInstanceDiscovered(object? sender, ServiceInstanceDiscoveryEventArgs e)
     {
         var parent = e.ServiceInstanceName.Parent();
 
-        if (DomainPartOne.Equals(parent.Labels.ElementAtOrDefault(0), StringComparison.InvariantCultureIgnoreCase))
-            discovered.Add(e.ServiceInstanceName.Labels.First());
+        if (parent is null) return;
+
+        if (DomainPartOne.Equals(parent.Labels[0], StringComparison.InvariantCultureIgnoreCase))
+            _discovered.Add(e.ServiceInstanceName.Labels[0]);
     }
 
     public async Task<string[]> Discover(TimeSpan timeout, CancellationToken token = default)
     {
-        sd.ServiceInstanceDiscovered += ServiceInstanceDiscovered;
-        sd.QueryServiceInstances(domain);
+        _discovery.ServiceInstanceDiscovered += ServiceInstanceDiscovered;
+        _discovery.QueryServiceInstances(Domain);
 
         await Task.Delay(timeout, token);
 
-        sd.ServiceInstanceDiscovered -= ServiceInstanceDiscovered;
+        _discovery.ServiceInstanceDiscovered -= ServiceInstanceDiscovered;
 
-        return discovered.OrderBy(s => s).Distinct().ToArray();
+        return _discovered.OrderBy(s => s).Distinct().ToArray();
     }
 }

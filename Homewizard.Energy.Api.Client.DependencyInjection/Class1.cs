@@ -6,6 +6,6 @@ public static class Class1
 {
     public static void Add(IServiceCollection services)
     {
-
+        throw new NotImplementedException();
     }
 }

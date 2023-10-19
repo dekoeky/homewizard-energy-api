@@ -14,11 +14,12 @@ public class HomewizardDiscoveryService : IHostedService, IDisposable
     private readonly Timer _timer = new(Delay);
     private readonly ServiceDiscovery _discovery = new();
     private static readonly DomainName Service = new(DomainPartOne, DomainPartTwo);
-    private readonly ConcurrentBag<string> _discovered = new();
+    private readonly ConcurrentBag<string> _discovered;
 
-    public HomewizardDiscoveryService(ILogger<HomewizardDiscoveryService> logger)
+    public HomewizardDiscoveryService(ILogger<HomewizardDiscoveryService> logger, ConcurrentBag<string> discovered)
     {
         _logger = logger;
+        _discovered = discovered;
     }
 
     public Task StartAsync(CancellationToken cancellationToken)
@@ -34,11 +35,15 @@ public class HomewizardDiscoveryService : IHostedService, IDisposable
     private void _discovery_ServiceInstanceDiscovered(object? sender, ServiceInstanceDiscoveryEventArgs e)
     {
         _logger.LogDebug("Service Instance Discovered: {ServiceInstanceName}", e.ServiceInstanceName);
+
         var parent = e.ServiceInstanceName.Parent();
 
-        if (DomainPartOne.Equals(parent.Labels.ElementAtOrDefault(0), StringComparison.InvariantCultureIgnoreCase))
-            Discovered(e.ServiceInstanceName.Labels.First());
+        if (parent is null) return;
+
+        if (DomainPartOne.Equals(parent.Labels[0], StringComparison.InvariantCultureIgnoreCase))
+            Discovered(e.ServiceInstanceName.Labels[0]);
     }
+
     private void Discovered(string hostname)
     {
         lock (_discovered)
@@ -64,7 +69,20 @@ public class HomewizardDiscoveryService : IHostedService, IDisposable
 
     public void Dispose()
     {
+        Dispose(true);
+        GC.SuppressFinalize(this);
+    }
+
+    protected virtual void Dispose(bool disposing)
+    {
+        if (!disposing)
+            return;
+
         _timer.Stop();
+
+        _timer.Elapsed -= Timer_Elapsed;
+        _discovery.ServiceInstanceDiscovered -= _discovery_ServiceInstanceDiscovered;
+
         _timer.Dispose();
         _discovery.Dispose();
     }

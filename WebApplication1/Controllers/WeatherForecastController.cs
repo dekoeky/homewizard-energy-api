@@ -1,22 +1,22 @@
+﻿using System.Collections.Concurrent;
 using Microsoft.AspNetCore.Mvc;
 
-namespace WebApplication1.Controllers
+namespace WebApplication1.Controllers;
+
+[ApiController]
+[Route("[controller]")]
+public class WeatherForecastController : ControllerBase
 {
-    [ApiController]
-    [Route("[controller]")]
-    public class WeatherForecastController : ControllerBase
+    private readonly ConcurrentBag<string> _discovered;
+
+    public WeatherForecastController(ConcurrentBag<string> discovered)
     {
-        private readonly ILogger<WeatherForecastController> _logger;
+        _discovered = discovered;
+    }
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
-        {
-            _logger = logger;
-        }
-
-        [HttpGet(Name = "GetWeatherForecast")]
-        public IEnumerable<string> Get()
-        {
-            return Array.Empty<string>();
-        }
+    [HttpGet(Name = "GetWeatherForecast")]
+    public IEnumerable<string> Get()
+    {
+        return _discovered.ToArray();
     }
 }
