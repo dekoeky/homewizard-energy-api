@@ -3,6 +3,9 @@
 
 name: .NET Publish Package
 
+permissions: 
+  packages: 
+    write
 on:
   #push:
   #  branches: [ "main" ]
