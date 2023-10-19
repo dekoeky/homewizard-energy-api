@@ -2,9 +2,12 @@
 using Elastic.Transport;
 using ElasticInserterDemo.Services;
 using Homewizard.Energy.Api.Client.Clients;
+using Serilog;
 
 var builder = Host.CreateApplicationBuilder(args);
 
+builder.Logging.ClearProviders();
+builder.Logging.AddSerilog(new LoggerConfiguration().ReadFrom.Configuration(builder.Configuration).CreateLogger());
 
 const string url = "https://elastic:elastic@host.docker.internal:9200";
 var settings = new ElasticsearchClientSettings(new Uri(url));
