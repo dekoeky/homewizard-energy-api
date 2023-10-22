@@ -5,8 +5,11 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<LangVersion>latest</LangVersion>
-		<!-- <GeneratePackageOnBuild>True</GeneratePackageOnBuild> -->
-		<Title>Homewizard Energy Api Client</Title>
+		
+    <!-- <GeneratePackageOnBuild>True</GeneratePackageOnBuild> -->
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+
+    <Title>Homewizard Energy Api Client</Title>
 		<Authors>Wesley Van Koeckhoven</Authors>
 		<Company>Wesley Van Koeckhoven</Company>
 		<Description>A .NET client for the Homewizard Energy Api</Description>
