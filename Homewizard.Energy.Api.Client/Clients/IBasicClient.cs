@@ -2,6 +2,6 @@
 
 namespace Homewizard.Energy.Api.Client.Clients;
 
-public interface IBaseClient : IGetBasicInformation
+public interface IBasicClient : IGetBasicInformation
 {
 }

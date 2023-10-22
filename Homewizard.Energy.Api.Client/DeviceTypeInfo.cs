@@ -2,20 +2,31 @@
 
 public class DeviceTypeInfo
 {
-    public string DeviceType { get; }
-    public string Device { get; }
+    public string Id { get; }
+    public string Description { get; }
+    public DeviceTypes DeviceType { get; }
 
-    public DeviceTypeInfo(string device, string deviceType)
+    private DeviceTypeInfo(DeviceTypes deviceType, string id, string description)
     {
-        this.DeviceType = deviceType;
-        this.Device = device;
+        Id = id;
+        Description = description;
+        DeviceType = deviceType;
     }
 
-    public static readonly DeviceTypeInfo P1Meter = new("Wi-Fi P1 meter", "HWE-P1");
-    public static readonly DeviceTypeInfo EnergySocket = new("Wi-Fi Energy Socket", "HWE-SKT");
-    public static readonly DeviceTypeInfo WaterMeter = new("Wi-Fi Watermeter(Only when powered over USB)", "HWE-WTR");
-    public static readonly DeviceTypeInfo KwhMeter1Phase = new("Wi-Fi kWh meter(1 phase)", "SDM230-wifi");
-    public static readonly DeviceTypeInfo KwhMeter3Phase = new("Wi-Fi kWh meter(3 phase)", "SDM630-wifi");
+    public static readonly DeviceTypeInfo P1Meter = new(DeviceTypes.P1Meter, Ids.P1Meter, "Wi-Fi P1 meter");
+    public static readonly DeviceTypeInfo EnergySocket = new(DeviceTypes.EnergySocket, Ids.EnergySocket, "Wi-Fi Energy Socket");
+    public static readonly DeviceTypeInfo WaterMeter = new(DeviceTypes.WaterMeter, Ids.WaterMeter, "Wi-Fi Watermeter(Only when powered over USB)");
+    public static readonly DeviceTypeInfo KwhMeter1Phase = new(DeviceTypes.KwhMeter1Phase, Ids.KwhMeter1Phase, "Wi-Fi kWh meter(1 phase)");
+    public static readonly DeviceTypeInfo KwhMeter3Phase = new(DeviceTypes.KwhMeter3Phase, Ids.KwhMeter3Phase, "Wi-Fi kWh meter(3 phase)");
+
+    internal static class Ids
+    {
+        public const string P1Meter = "HWE-P1";
+        public const string EnergySocket = "HWE-SKT";
+        public const string WaterMeter = "HWE-WTR";
+        public const string KwhMeter1Phase = "SDM230-wifi";
+        public const string KwhMeter3Phase = "SDM630-wifi";
+    }
 
     public static IEnumerable<DeviceTypeInfo> All()
     {

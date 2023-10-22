@@ -1,18 +1,12 @@
-using Homewizard.Energy.Api.Client.Models;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Text.Json;
+using Homewizard.Energy.Api.Client.Models;
 
 namespace Homewizard.Energy.Api.Client.Tests.Serialization;
 
 [TestClass]
-public class HweSktDataTests
+public class HweSktDataTests : DataTestsBase
 {
-    private static readonly JsonSerializerOptions options = new()
-    {
-        AllowTrailingCommas = true,
-        WriteIndented = true,
-    };
-
     [TestMethod]
     public void DeserializeTest()
     {
@@ -44,7 +38,12 @@ public class HweSktDataTests
         //Arrange
         var data = new HweSktData
         {
-
+            ActivePower = 100.23,
+            ActivePowerL1 = 200.46,
+            WifiSsid = "ssid",
+            WifiStrength = 53.1,
+            TotalPowerExportT1 = 123.4,
+            TotalPowerImportT1 = 1450.1,
         };
 
         //Act

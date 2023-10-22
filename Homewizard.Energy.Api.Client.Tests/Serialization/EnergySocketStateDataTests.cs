@@ -1,18 +1,12 @@
-﻿using Homewizard.Energy.Api.Client.Models;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Text.Json;
+using Homewizard.Energy.Api.Client.Models;
 
 namespace Homewizard.Energy.Api.Client.Tests.Serialization;
 
 [TestClass]
-public class EnergySocketStateDataTests
+public class EnergySocketStateDataTests : DataTestsBase
 {
-    private static readonly JsonSerializerOptions options = new()
-    {
-        AllowTrailingCommas = true,
-        WriteIndented = true,
-    };
-
 
     [TestMethod]
     public void DeserializeTest()

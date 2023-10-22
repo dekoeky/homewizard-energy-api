@@ -1,6 +1,6 @@
 ﻿namespace Homewizard.Energy.Api.Client.Clients;
 
-public interface IWifiEnergySocketClient : IBaseClient,
+public interface IWifiEnergySocketClient : IBasicClient,
    Capabilities.IEnergySocketState,
    Capabilities.IIdentify,
    Capabilities.ISystemSettings,

@@ -18,9 +18,9 @@ public class DeviceTypesTests
 
             //Assert
             Assert.IsNotNull(info);
-            Assert.IsFalse(string.IsNullOrEmpty(info.Device));
-            Assert.IsFalse(string.IsNullOrEmpty(info.DeviceType));
-            Debug.WriteLine($"{item} -> '{info.DeviceType}' - {info.Device} ");
+            Assert.IsFalse(string.IsNullOrEmpty(info.Description));
+            Assert.IsFalse(string.IsNullOrEmpty(info.Id));
+            Debug.WriteLine($"{item} -> '{info.Id}' - {info.Description} ");
         }
     }
 }

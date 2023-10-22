@@ -1,18 +1,12 @@
-using Homewizard.Energy.Api.Client.Models;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Text.Json;
+using Homewizard.Energy.Api.Client.Models;
 
 namespace Homewizard.Energy.Api.Client.Tests.Serialization;
 
 [TestClass]
-public class SystemSettingsTests
+public class SystemSettingsTests : DataTestsBase
 {
-    private static readonly JsonSerializerOptions options = new()
-    {
-        AllowTrailingCommas = true,
-        WriteIndented = true,
-    };
-
     [DataTestMethod]
     [DataRow("{\r\n   \"cloud_enabled\": false\r\n}\r\n", false)]
     [DataRow("{\r\n   \"cloud_enabled\": true\r\n}\r\n", true)]
