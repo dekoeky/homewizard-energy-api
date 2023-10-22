@@ -1,0 +1,12 @@
+﻿{
+  "profiles": {
+    "Homewizard.Energy.Api.CliTool": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "commandLineArgs": "--Uri=http://192.168.0.242",
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

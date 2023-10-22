@@ -1,22 +1,23 @@
-﻿using System.Collections.Concurrent;
+﻿using Homewizard.Energy.Api.Client;
+using Homewizard.Energy.Api.Client.Clients;
+using Homewizard.Energy.Api.Client.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApplication1.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class WeatherForecastController : ControllerBase
+public class PowerSocketController : ControllerBase
 {
-    private readonly ConcurrentBag<string> _discovered;
-
-    public WeatherForecastController(ConcurrentBag<string> discovered)
+    [HttpGet("GetWeatherForecast/{serial}")]
+    public async Task<BasicInformation?> GetAsync(string serial, CancellationToken token = default)
     {
-        _discovered = discovered;
-    }
+        var hostname = Hostname.CalculateHostname(serial, DeviceTypes.EnergySocket);
 
-    [HttpGet(Name = "GetWeatherForecast")]
-    public IEnumerable<string> Get()
-    {
-        return _discovered.ToArray();
+        //var client = new WifiEnergySocketClient($"http://{hostname}");
+        var client = new WifiEnergySocketClient("http://192.168.0.242");
+        var info = await client.GetBasicInformation(token);
+
+        return info;
     }
 }

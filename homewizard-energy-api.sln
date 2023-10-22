@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ElasticInserterDemo", "Elas
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Homewizard.Energy.Api.Client.DependencyInjection", "Homewizard.Energy.Api.Client.DependencyInjection\Homewizard.Energy.Api.Client.DependencyInjection.csproj", "{9D0C0C3C-F375-4839-85D0-9B249F019194}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homewizard.Energy.Api.CliTool", "Homewizard.Energy.Api.CliTool\Homewizard.Energy.Api.CliTool.csproj", "{EE520392-0E1C-4C4F-A9A2-124548087E35}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{9D0C0C3C-F375-4839-85D0-9B249F019194}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9D0C0C3C-F375-4839-85D0-9B249F019194}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9D0C0C3C-F375-4839-85D0-9B249F019194}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE520392-0E1C-4C4F-A9A2-124548087E35}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE520392-0E1C-4C4F-A9A2-124548087E35}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE520392-0E1C-4C4F-A9A2-124548087E35}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE520392-0E1C-4C4F-A9A2-124548087E35}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
